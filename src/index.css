@@ -1,0 +1,250 @@
+body {
+  background-color: #f2f6f7;
+  min-width: 350px !important;
+  scroll-behavior: smooth !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#nav_logo {
+  width: 7rem;
+}
+
+.Nav_UserAccount_Img {
+  width: 4.5rem !important;
+  border-radius: 50% !important;
+}
+
+/* Side Bar */
+
+#side_bar {
+  height: 100% !important;
+}
+
+#sideBar_navigation li {
+  color: rgb(78, 79, 80);
+  padding: 0 2px;
+}
+
+.table {
+  overflow-x: auto !important;
+  box-sizing: border-box;
+}
+
+.active {
+  background-color: black !important;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+.card-header {
+  font-weight: bold !important;
+}
+
+.card_icons i {
+  height: 50px !important;
+  width: 50px !important;
+}
+
+/* Projects */
+
+.projects_Imgs {
+  min-width: 40px;
+  max-width: 50px;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 5px;
+  border: 1px solid #d3d0d0;
+  border-radius: 50%;
+}
+
+#Departments_Img img {
+  width: 45px !important;
+  height: 45px !important;
+  /* position: relative; */
+  margin-left: -10px;
+}
+
+#Departments_Img img:nth-child(2) {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  width: 47px !important;
+  height: 47px !important;
+  z-index: 11;
+}
+
+tbody tr:hover {
+  background-color: #daedf1 !important;
+}
+
+
+#Employ_table th,
+.Employ_table th {
+  background-color: rgb(235, 225, 225) !important;
+
+}
+
+#adduserCnicInput {
+  width: 50px !important;
+  min-width: 50px !important;
+  max-width: 107px !important;
+}
+
+#addResourceImg {
+  display: flex;
+  justify-content: center;
+  border-radius: 40px !important;
+}
+
+#addResourceImg img,
+#add_source_Uploaded_img {
+  position: relative;
+  margin-top: -60px;
+  border: 5px solid #ebe8e863 !important;
+  border-radius: 90px !important;
+  width: 100px !important;
+  height: 100px !important;
+  max-height: 100px !important;
+  max-width: 10rem !important;
+  min-width: 40px !important;
+}
+
+.transition-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+.transition-container.expanded {
+  max-height: 1000px;
+  /* Set to a value large enough to accommodate your content */
+}
+
+select {
+  border-radius: 0px !important;
+}
+
+.Filters_Select_label {
+  font-size: 12px !important;
+}
+
+.set_Search_Placrholder {
+  background-image: url(./Common/ass.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5px center;
+  padding-left: 30px;
+}
+
+.input-group,
+.set_icon_bg {
+  border-right: 0px;
+  background: transparent;
+}
+
+.developer_status_Update {
+  background-color: rgb(138, 231, 180) !important;
+}
+
+.circular-progress {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.progress-value {
+  position: relative;
+  font-weight: 600;
+}
+.sc-aXZVg {
+  border: none !important;
+}
+.sc-aXZVg svg  {
+  display: none !important;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
+td:hover {
+  font-weight: 600;
+  transition: 0.2s;
+  background: #f1f1f1 !important;
+}
+
+#pagination_Color_setting {
+  --bs-pagination-color: #000000 !important;
+  --bs-pagination-active-bg: #0000 !important;
+  --pagination-border-radius-sm: 0px !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 991px) {
+  #Nav_user_Account {
+    margin: 10px 0 !important;
+  }
+}
+
+@media screen and (max-width : 487px) {
+  #Nav_user_Account {
+    margin: auto !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #Navbar_search {
+    width: 100% !important;
+  }
+
+  #adduserCnicInput {
+    margin-top: 10px;
+  }
+
+  .Nav_UserAccount_Img {
+    margin-left: 10px !important;
+  }
+}
+
+@media screen and (max-width : 680px) {
+  #Employe_Filter_TitleSet {
+    margin-bottom: 50px !important;
+    transition: 1s;
+  }
+
+  #addResourceImg img {
+    width: 100px !important;
+  }
+}
+
+@media screen and (max-width : 768px) {
+  #Employes_page_Search {
+    width: 200px !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #navbar_logo_container {
+    width: 17% !important;
+  }
+
+  #navbarSupportedContent input {
+    max-width: 41% !important;
+  }
+}
