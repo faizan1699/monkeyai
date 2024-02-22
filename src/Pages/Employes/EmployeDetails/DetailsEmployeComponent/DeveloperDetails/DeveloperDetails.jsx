@@ -1,21 +1,22 @@
 import React from 'react';
 
-import DeveloperDataCard from './DeveloperDataCard';
-import { DeveloperData } from '../../../../../Services/Services';
-
-export default function DeveloperDetails() {
+export default function DeveloperDataCard(props) {
 
     return (
-        <>
-            {
-                DeveloperData.map((data, Index) => (
-                    <div key={Index} >
-                        <DeveloperDataCard data={data} />
-                    </div>
-                ))
-            }
-        </>
 
+        <div className=''>
+
+            <div className='d-flex justify-content-end'>
+
+                <select className="form-select-sm p-1 mb-2 fw-bold developer_status_Update" >
+                    <option defaultValue>Secured</option>
+                    <option value="Free">Free</option>
+                    <option value="Dismiss">Dismiss</option>
+                </select>
+
+            </div>
+
+        </div>
 
     )
 }

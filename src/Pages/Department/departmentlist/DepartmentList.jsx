@@ -2,9 +2,9 @@ import React from 'react';
 
 import AddBtn from '../../Components/AddBtn/AddBtn';
 import EmployesFilters from './EmployesFilters/EmployesFilters';
-import DepartmentEmployesList from './EmployesFilters/DepartmentEmployesList';
+import DepartmentEmployesList from './EmployesFilters/DepartmentList';
 
-export default function DepartmentList() {
+const DepartmentList = () => {
 
   return (
 
@@ -13,7 +13,7 @@ export default function DepartmentList() {
       <div className="my-3 d-flex justify-content-between">
       
         <h3 className='fw-bold'>Department List</h3>
-        <AddBtn fwicon='fa-solid fa-add text-dark' btnclass={`btn-dark`} btntitle='Add Department' routlink='departmentemployees' />
+        <AddBtn fwicon='fa-solid fa-add text-dark' btnclass={`btn-dark`} btntitle='Add Department' routlink='adddepartment' />
       
       </div>
 
@@ -25,9 +25,9 @@ export default function DepartmentList() {
         <DepartmentEmployesList />
       </div>
 
-
-
     </div>
 
   )
 }
+
+export default DepartmentList;

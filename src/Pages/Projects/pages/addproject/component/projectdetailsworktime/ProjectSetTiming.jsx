@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-export default function ProjectSetTiming() {
+const ProjectSetTiming = () => {
     return (
+        
         <div className='row justify-content-between align-items-center'>
 
             <div className='col-md-2 mb-2 mt-1'>
@@ -25,14 +26,20 @@ export default function ProjectSetTiming() {
 
             <div className='col-md-4 '>
                 <div className="row">
+                   
                     <div className="col-md-2 d-none d-md-block"></div>
+                    
                     <div className="d-flex flex-column col-md-10 ">
-                        <slabel htmlFor="label" className='small text-secondary'>Total Planned Man Days</slabel>
+                        <label htmlFor="label" className='small text-secondary'>Total Planned Man Days</label>
                         <input className='form-control py-2' type="text" placeholder='50' />
                     </div>
+
                 </div>
             </div>
         </div>
 
     )
 }
+
+
+export default ProjectSetTiming

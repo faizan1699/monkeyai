@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMobile, faCalendar, faAddressCard, faGlobe, faIdCard } from '@fortawesome/free-solid-svg-icons';
 
-export default function PersonalInformation() {
+export default function PersonalInformation({setAddEmploye}) {
 
     const uploadCnicRef = useRef(null);
     const fileInputRef = useRef(null);
@@ -26,6 +26,22 @@ export default function PersonalInformation() {
         }
     };
 
+    const [input, setinput] = useState({
+        name: '',
+        contact: '',
+        dob: '',
+        address: '',
+        country: '',
+        cnic: '',
+    })
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setinput((data) => ({ ...data, [name]: value }));
+        setAddEmploye((data) => ({ ...data, [name]: value }));
+    }
+
+
     return (
         <div className='row'>
             <h5 className=''>PersonalInformation</h5>
@@ -36,7 +52,7 @@ export default function PersonalInformation() {
 
                     <div className="input-group">
                         <span className="input-group-text set_icon_bg">{iconUser}</span>
-                        <input type="text" className='form-control' placeholder="Muhammad Ali" />
+                        <input type="text" name='name' value={input.name} onChange={handleInputChange} className='form-control' placeholder="Muhammad Ali" />
                     </div>
 
                 </div>
@@ -48,7 +64,7 @@ export default function PersonalInformation() {
 
                     <div className="input-group">
                         <span className="input-group-text set_icon_bg">{iconMobile}</span>
-                        <input type="number" className='form-control ' placeholder='+00 000-00000-000' />
+                        <input type="number" name='contact' value={input.number} onChange={handleInputChange} className='form-control ' placeholder='+00 000-00000-000' />
                     </div>
 
                 </div>
@@ -60,7 +76,7 @@ export default function PersonalInformation() {
 
                     <div className="input-group">
                         <span className="input-group-text set_icon_bg">{iconCalender}</span>
-                        <input type='date' className='form-control' placeholder='08/05/2002' />
+                        <input type='date' name='dob' value={input.dob} onChange={handleInputChange} className='form-control' placeholder='08/05/2002' />
                     </div>
 
                 </div>
@@ -72,7 +88,7 @@ export default function PersonalInformation() {
 
                     <div className="input-group">
                         <span className="input-group-text set_icon_bg">{iconAddress}</span>
-                        <input type="text" className='form-control ' placeholder='Gulshan Iqbal Street No # 3 Lahore punjab' />
+                        <input type="text" name='address' value={input.address} onChange={handleInputChange} className='form-control ' placeholder='Gulshan Iqbal Street No # 3 Lahore punjab' />
                     </div>
 
                 </div>
@@ -84,7 +100,7 @@ export default function PersonalInformation() {
 
                     <div className="input-group">
                         <span className="input-group-text set_icon_bg">{iconGlobe}</span>
-                        <input type="text" className='form-control ' placeholder='Pakistan' />
+                        <input type="text" name='country' value={input.country} onChange={handleInputChange} className='form-control ' placeholder='Pakistan' />
                     </div>
 
                 </div>
@@ -100,7 +116,7 @@ export default function PersonalInformation() {
                     <div className="input-group ">
 
                         <span className="input-group-text set_icon_bg">{iconId}</span>
-                        <input type="number" className='form-control  rounded-0' placeholder='00000-0000000-0' />
+                        <input type="number" name='cnic' value={input.cnic} onChange={handleInputChange} className='form-control  rounded-0' placeholder='00000-0000000-0' />
 
                         <button className='btn btn-secondary btn-sm py-0 ms-md-3' ref={uploadCnicRef} type='button' onClick={() => fileInputRef.current.click()}>
                             <i className="fa-solid fa-thin me-1 fa-paperclip" typeof=''></i>Upload CNIC

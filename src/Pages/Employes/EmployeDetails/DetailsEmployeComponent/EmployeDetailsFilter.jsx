@@ -15,8 +15,10 @@ export default function EmployeDetailsFilter() {
 
             <div className="d-flex align-items-center" >
               <div className="w-100">
+              
                 <label htmlFor="search" className='Filters_Select_label'>Search</label>
-                <Search width="" height='' py='3px' radius={0} placeholder="Search Employes" />
+                <Search width="" height='' py='3px' radius={0} placeholder="Search Project" />
+              
               </div>
             </div>
 

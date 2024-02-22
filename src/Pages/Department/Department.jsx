@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-export default function Department() {
+const Department = () => {
 
   return (
-
     <>
       <Outlet />
     </>
-
   )
 }
+
+export default Department;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SideBarLi from './SideBarLi';
 import { sideBarLinks } from '../../../Services/Services';
 
-export default function SideBar() {
+const SideBar = () => {
 
     const [displaysm, setDisplaySm] = useState('none');
     const [icon, setIcon] = useState('fa-sliders');
@@ -45,3 +45,5 @@ export default function SideBar() {
         </>
     );
 }
+
+export default SideBar;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Card from '../../../Components/card/Card';
-import EditSource from './addsource/EditSource';
+import EditSource from '../../../Components/editsource/EditSourceForm';
 
 import { Link } from 'react-router-dom';
 
@@ -16,10 +16,11 @@ export default function EditResource() {
       } />
 
       <Card classes='' carddata={
-        <>
-          <EditSource />
-        </>
+
+        <EditSource saveLink='/projects' />
+
       } />
     </div>
   )
 }
+

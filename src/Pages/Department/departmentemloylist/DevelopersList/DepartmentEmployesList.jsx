@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 
 import Pagination from '../../../Components/PaginationComponent/Pagination';
-import { DepartmentEmployees } from '../../../../Services/Services';
 
 export default function DevelopersListCard(props) {
 
@@ -13,44 +14,81 @@ export default function DevelopersListCard(props) {
         setCurrentPage(newPage);
     };
 
+
+    const navigate = useNavigate();
+    const [employedata, setEmployeData] = useState([]);
+
+    const getEmployeData = (data) => {
+        navigate(`/employees/${data.id}`);
+    };
+
+    useEffect(() => {
+        const getEmploye = localStorage.getItem(`Employes`);
+        const employe = JSON.parse(getEmploye);
+        setEmployeData(employe);
+    }, [])
+
     return (
         <div className='card' style={{ overflow: "scroll" }}>
             <div className='card-body'>
 
-                <table className="table table-responsive-sm table-hover Employ_table" >
-                    <thead className=''>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Employee Name</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Department</th>
-                            <th scope="col">Projects</th>
-                            <th scope="col">Assignment</th>
-                        </tr>
-                    </thead>
+                <div className=''>
+                    <div className='table-responsive'>
+                        {employedata ? (
+                            <table className="table table-hover table-responsive-sm table-responsive Employ_table">
+                                <thead className='bg-danger'>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Employee Name</th>
+                                        <th scope='col'>Title</th>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">Projects</th>
+                                        <th scope="col">Assignment</th>
 
-                    <tbody>
-                        {
-                            DepartmentEmployees.map((data) => (
-                                <tr key={data.id}>
-                                    <td className='fw-bold text-center' >{data.id}</td>
-                                    <td className='d-flex'>
-                                        <img className='img-fluid rounded-pill me-2' src={data.employimg} style={{ maxWidth: "50px", maxHeight: "55px" }} alt="Not Found" />
+                                    </tr>
+                                </thead>
 
-                                        <div>
-                                            <span className='d-flex flex-column'>{data.Name}</span>
-                                            <span className='small text-lowercase'>{data.mail}</span>
-                                        </div>
-                                    </td>
-                                    <td>{data.desigination}</td>
-                                    <td>{data.department}</td>
-                                    <td>{data.Project}</td>
-                                    <td>{data.assignment}</td>
-                                </tr>
-                            ))
+                                <tbody>
+                                    {employedata.map((data, Index, id) => (
+
+                                        <tr id={data.id} key={Index}>
+
+                                            <td onClick={() => getEmployeData(data)} className='fw-bold text-center'>{data.id}</td>
+
+                                            <td onClick={() => getEmployeData(data)} >
+                                                <div className='d-flex' >
+                                                    <img className='img-fluid rounded-pill me-2' id='employetable_img' src={data.employeimg} alt="not found" />
+
+                                                    <div className='m-0  d-flex flex-column justify-content-center'>
+                                                        <p className='small m-0 text-nowrap fw-bold'>
+                                                            {data.name ? data.name : 'not found'}
+                                                        </p>
+                                                        <p className='small m-0'>
+                                                            {data.email ? data.email : 'not found'}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.jobtitle ? data.jobtitle : 'not found'}</td>
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.department ? data.department : 'not found'}</td>
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.project ? data.project : 'not found'}</td>
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.assignment ? data.assignment : 'not found'}</td>
+
+                                        </tr>
+                                    ))}
+
+                                </tbody>
+                            </table>
+                        ) : (
+                            <div>
+                                <h1>Data Not Found</h1>
+                            </div>
+                        )
                         }
-                    </tbody>
-                </table>
+                    </div>
+
+                </div>
 
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             </div>

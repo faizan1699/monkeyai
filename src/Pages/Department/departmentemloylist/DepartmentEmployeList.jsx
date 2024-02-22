@@ -1,11 +1,11 @@
 import React from 'react';
 
 import DeveloperList from './DevelopersList/DepartmentEmployesList';
-import EmployesFilter from './EmployesFilters/EmployesFilters';
+import EmployesFilter from './departmentlist/EmployesFilters';
 
 import { Link } from 'react-router-dom';
 
-export default function DepartmentEmployesList() {
+const DepartmentEmployesList = () => {
 
   return (
 
@@ -15,7 +15,7 @@ export default function DepartmentEmployesList() {
         <h3 className='fw-bold'>
           <Link className='nav-link' to='/department'>
             <i className="fa-solid fa-arrow-left small me-2"></i>
-            Department Employes Filter
+            Department Employes List
           </Link>
         </h3>
       </div>
@@ -32,3 +32,5 @@ export default function DepartmentEmployesList() {
     </div>
   )
 }
+
+export default DepartmentEmployesList;

@@ -1,0 +1,185 @@
+/* Importing the Ubuntu font */
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+
+/* Variables */
+:root {
+  --purple: #28254C;
+  --l-purple: #332F63;
+  --t-purple: #8C8AA7;
+  --pink: #FF5E65;
+  --white: #fff;
+}
+
+/* Box styling */
+.box {
+  width: 350px;
+  height: 100%;
+  max-height: 600px;
+  min-height: 450px;
+  background: var(--l-purple);
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 50px;
+}
+
+/* Box Ghost styling */
+.box__ghost {
+  padding: 15px 25px 25px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -30%);
+}
+
+/* Ghost symbols styling */
+.symbol:nth-child(1) {
+  opacity: .2;
+  animation: shine 4s ease-in-out 3s infinite;
+}
+
+/* Add styles for other symbol elements */
+
+/* Ghost container styling */
+.box__ghost-container {
+  background: var(--white);
+  width: 100px;
+  height: 100px;
+  border-radius: 100px 100px 0 0;
+  position: relative;
+  margin: 0 auto;
+  animation: upndown 3s ease-in-out infinite;
+}
+
+/* Ghost eyes styling */
+.box__ghost-eyes {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  height: 12px;
+  width: 70px;
+}
+
+/* Add styles for other elements in .box__ghost-eyes */
+
+/* Ghost bottom styling */
+.box__ghost-bottom {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+/* Add styles for other elements in .box__ghost-bottom */
+
+/* Ghost shadow styling */
+.box__ghost-shadow {
+  height: 20px;
+  box-shadow: 0 50px 15px 5px #3B3769;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: smallnbig 3s ease-in-out infinite;
+}
+
+/* Box description styling */
+.box__description {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Add styles for other elements in .box__description */
+
+/* Button styling */
+.box__button {
+  display: block;
+  position: relative;
+  background: var(--pink);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white);
+  line-height: 50px;
+  font-size: 18px;
+  padding: 0 70px;
+  white-space: nowrap;
+  margin-top: 25px;
+  transition: background .5s ease;
+  overflow: hidden;
+}
+
+/* Button hover animation */
+.box__button:hover {
+  background: transparent;
+  border-color: var(--white);
+}
+
+.box__button:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  background: var(--white);
+  bottom: -25px;
+  left: 0;
+  border: 2px solid var(--white);
+  transform: translateX(-50px) rotate(45deg);
+  transition: transform .5s ease;
+}
+
+.box__button:hover:before {
+  transform: translateX(250px) rotate(45deg);
+}
+
+/* Keyframes */
+@keyframes upndown {
+  0% {
+    transform: translateY(5px);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes smallnbig {
+  0% {
+    width: 90px;
+  }
+
+  50% {
+    width: 100px;
+  }
+
+  100% {
+    width: 90px;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: .2;
+  }
+
+  25% {
+    opacity: .1;
+  }
+
+  50% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: .2;
+  }
+}

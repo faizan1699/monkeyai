@@ -25,16 +25,12 @@ body {
   padding: 0 2px;
 }
 
-.table {
-  overflow-x: auto !important;
-  box-sizing: border-box;
-}
-
 .active {
   background-color: black !important;
   color: #fff !important;
   border-radius: 5px;
 }
+
 
 .card-header {
   font-weight: bold !important;
@@ -43,6 +39,10 @@ body {
 .card_icons i {
   height: 50px !important;
   width: 50px !important;
+}
+
+.card-body {
+  background-color: rgb(255, 255, 255) !important;
 }
 
 /* Projects */
@@ -60,7 +60,6 @@ body {
 #Departments_Img img {
   width: 45px !important;
   height: 45px !important;
-  /* position: relative; */
   margin-left: -10px;
 }
 
@@ -75,11 +74,16 @@ tbody tr:hover {
   background-color: #daedf1 !important;
 }
 
+.fa-arrow-left:hover {
+  background-color: #15b7cc !important;
+  color: rgb(255, 255, 255);
+  padding: 3px 5px !important;
+  border-radius: 40px;
+  transition: 0.5s;
+}
 
-#Employ_table th,
 .Employ_table th {
   background-color: rgb(235, 225, 225) !important;
-
 }
 
 #adduserCnicInput {
@@ -115,7 +119,6 @@ tbody tr:hover {
 
 .transition-container.expanded {
   max-height: 1000px;
-  /* Set to a value large enough to accommodate your content */
 }
 
 select {
@@ -124,6 +127,20 @@ select {
 
 .Filters_Select_label {
   font-size: 12px !important;
+}
+
+#employeImg {
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+}
+
+#employetable_img {
+  max-width: 55x !important;
+  max-height: 55px !important;
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .set_Search_Placrholder {
@@ -141,7 +158,9 @@ select {
 }
 
 .developer_status_Update {
-  background-color: rgb(138, 231, 180) !important;
+  border: none;
+  color: rgb(1, 100, 46) !important;
+  background-color: rgb(179, 241, 207) !important;
 }
 
 .circular-progress {
@@ -167,21 +186,32 @@ select {
   position: relative;
   font-weight: 600;
 }
+
 .sc-aXZVg {
   border: none !important;
 }
-.sc-aXZVg svg  {
+
+.sc-aXZVg svg {
   display: none !important;
 }
 
-td {
+tr {
   vertical-align: middle !important;
+  width: 100% !important;
+}
+
+input::placeholder {
+  font-size: 12px;
+}
+
+td {
+  width: auto !important;
 }
 
 td:hover {
   font-weight: 600;
   transition: 0.2s;
-  background: #f1f1f1 !important;
+  background: #f1f1f15b !important;
 }
 
 #pagination_Color_setting {
@@ -237,6 +267,16 @@ input[type=number]::-webkit-outer-spin-button {
   #Employes_page_Search {
     width: 200px !important;
   }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .card ,.table-responsive{
+    max-width: 25rem !important;
+    margin: auto !important;
+  }
+
 }
 
 @media screen and (min-width: 1000px) {

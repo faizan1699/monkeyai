@@ -1,25 +1,37 @@
 import React from 'react';
 
-import InformationData from './ProfessionalInformationData';
-
-export default function ProfessionalDetail() {
-
-    const EmployeProfessionaldata = [
-        { employeId: 44883, EmployType: "Full Time", jobtitle: "Frontend Engineer", location: "Pakistan", department: "Software Engineering", Joindata: "January 01,2023" },
-    ]
+export default function ProfessionalDetail({employedata}) {
 
     return (
-        <div className='small'>
-            <h5 className='card-title'>Professional Information</h5>
-            <>
-                {
-                    EmployeProfessionaldata.map((data, Index) => (
-                        <div className="" key={Index}>
-                            <InformationData data={data} />
-                        </div>
-                    ))
-                }
-            </>
+
+        <div className='row'>
+
+            <div className="col-md-6">
+
+                <label htmlFor="">Employment ID</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.id ? employedata.id : "select employe"}</div>
+
+                <label htmlFor="">Job Title</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.jobtitle ? employedata.jobtitle : "missing title"}</div>
+
+                <label htmlFor="">Department</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.department ? employedata.department : "missing department"}</div>
+
+            </div>
+
+            <div className="col-md-6">
+
+                <label htmlFor="">Employment Type</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.employement_type ? employedata.employement_type : "select employe"}</div>
+
+                <label htmlFor="">Location</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.location ? employedata.location : "location"}</div>
+
+                <label htmlFor="">Date Join</label>
+                <div className="card-text mb-2 fw-bold  small">{employedata.joindate ? employedata.joindate : "join_data"}</div>
+
+            </div>
+
         </div>
     )
 }

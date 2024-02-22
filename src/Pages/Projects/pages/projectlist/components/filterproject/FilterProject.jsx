@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchInput from '../../../../../Components/Search/SearchInput';
 
-export default function FilterProject() {
+const FilterProject = () => {
 
     return (
         <div className='card'>
@@ -72,3 +72,5 @@ export default function FilterProject() {
         </div >
     )
 }
+
+export default FilterProject

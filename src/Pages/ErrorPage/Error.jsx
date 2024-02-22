@@ -1,17 +1,17 @@
 import React from 'react';
 
-export default function Error() {
+import errorimg from './error.png'
 
-    // const SetErrorText = {
-    //     position: "relative",
-    //     marginTop: "-20%",
-    //     zIndex: "1",
-    // }
+const Error = () => {
 
     return (
-        <div className='d-flex d-flex flex-column justify-content-center align-items-center h-100'>
-           {/* <img className='img-fluid ' src={Error404} alt="" /> */}
-           <h1 className='fw-bold text-danger' >SomeThing Went Wrong</h1>
+        <div className="row g-0 ">
+            <div className="col">
+                <div className="d-flex justify-content-center mt-5">
+                    <img src={errorimg} className='img-fluid' style={{ maxWidth: "40%" }} alt="" />
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
+export default Error;

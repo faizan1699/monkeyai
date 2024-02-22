@@ -7,15 +7,15 @@ import Logo from '../../../Common/Logo/Logo.png';
 import UserAccount from './UserAccount';
 import SearchInput from '../../Components/Search/SearchInput';
 
-export default function  Navbar() {
+const Navbar = () => {
 
     return (
 
-        <nav className="navbar navbar-expand-lg p-0" style={{background: "#fff"}}>
+        <nav className="navbar navbar-expand-lg p-0" style={{ background: "#fff" }}>
 
             <div className="container-fluid ">
-
-                <button className="navbar-toggler px-2 btn-sm rounded-0 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                
+                <button className="navbar-toggler px-2 btn-sm rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
@@ -34,6 +34,9 @@ export default function  Navbar() {
                 </div>
 
             </div>
+
         </nav>
     )
 }
+
+export default  Navbar;

@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 
 import DepartmentData from './Components/DepartMents/DepartMents';
 import DeveloperList from './Components/DevelopersList/DeveloperList';
 import ProjectMercyIdpTopCard from './Components/ProjectMercyTopCards/ProjectMercyIdpTopCard';
-import ResourceLocation from './Components/ResourcesLocation/ResourcesLocation';
 import ResourcesTitles from './Components/ResourcesTitles/ResourcesTitles';
 
 import AddBtn from '../Components/AddBtn/AddBtn';
-import { Link } from 'react-router-dom';
+import EmployeLocation from '../Components/employelocation/EmployeLocation';
 
-export default function ProjectsIndex() {
+const ProjectsIndex = () => {
+
+  const [isemploye, setisEmploye] = useState([]);
+
+  useEffect(() => {
+
+    const getEmploye = localStorage.getItem(`Employes`);
+    const employees = JSON.parse(getEmploye);
+
+    setisEmploye(employees);
+
+  }, [])
 
   return (
 
@@ -18,33 +28,23 @@ export default function ProjectsIndex() {
 
         <div className=''>
           <div className="row m-0">
-            <div className="col-md-6">
+            <div className=" d-sm-column d-flex justify-content-between">
 
-              <Link className='nav-link' to='/dashboard' >
-                <h3 className='my-3 fw-bold'><i className="fa-solid fa-arrow-left small"></i> Mercy-IDP Details</h3>
-              </Link>
+              <h3 className='my-3 fw-bold'>Mercy-IDP Details</h3>
 
-            </div>
+              <div className='d-flex align-items-center'>
 
-            <div className="col-md-6 ">
+                <div className='me-2'>
+                  <AddBtn btnclass='px-3 btn-light border-1 border-dark' iconClass='' fwicon='fa-solid fa-pen bg-light ' btntitle='Edit Source' routlink='' />
+                </div>
 
-              <div className="d-flex justify-content-md-end justify-content-center mt-md-3 m-2 mt-sm-1">
-
-                <div className='d-flex align-items-center'>
-          
-                  <div className='me-2'>
-                    <AddBtn btnclass='px-3 btn-light border-1 border-dark' iconClass='' fwicon='fa-solid fa-pen bg-light ' btntitle='Edit Source' routlink='editresource' />
-                  </div> 
-
-                  <div className=''>
-                    <AddBtn btnclass='px-3 btn-dark' fwicon='fa-solid text-dark bg-light  fa-add' btntitle='Project List' routlink='projectlist' />
-                  </div>
-
+                <div className=''>
+                  <AddBtn btnclass='px-3 btn-dark' fwicon='fa-solid text-dark bg-light  fa-add' btntitle='Project List' routlink='projectlist' />
                 </div>
 
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function ProjectsIndex() {
       <div className="row g-2 mt-2">
 
         <div className="col-md-8">
-          <ResourceLocation />
+          <EmployeLocation />
         </div>
 
         <div className="col-md-4">
@@ -66,8 +66,24 @@ export default function ProjectsIndex() {
         <div className='w-100'>
           <ResourcesTitles />
         </div>
-        <div className='w-100' >
-          <DeveloperList />
+        <div className='' >
+
+          {
+            isemploye.length > 0 ?
+          <DeveloperList /> :
+
+          <div className='card'>
+            <div className="card-body">
+
+              <div className="d-flex justify-content-center align-items-center flex-column">
+                <i className="fa-solid fa-person-circle-question text-secondary" style={{ fontSize: "100px" }}></i>
+
+                <div className="small mt-4 text-secondary">Data not Available</div>
+              </div>
+
+            </div>
+          </div>
+          }
         </div>
 
       </div>
@@ -75,3 +91,5 @@ export default function ProjectsIndex() {
     </div>
   )
 }
+
+export default ProjectsIndex;

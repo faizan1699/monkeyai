@@ -2,7 +2,7 @@ import React from 'react';
 
 import SearchInput from '../../Components/Search/SearchInput';
 
-export default function EmployesFilters() {
+const EmployesFilters = () => {
 
   return (
     <div className='card'>
@@ -23,46 +23,46 @@ export default function EmployesFilters() {
 
           <div className="col-md-7 mt-2 d-flex align-items-center jus">
             <div className="row g-0">
-              
-                <div className='d-flex flex-column col'>
 
-                  <label htmlFor="" className='Filters_Select_label'>Title</label>
-                  <select className="form-select-sm me-1 mb-2" aria-label="Default select example">
-                    <option defaultValue>All</option>
-                    <option value="1">Engineers</option>
-                    <option value="2">FrontEnd Developers</option>
-                    <option value="3">Data Scientist</option>
-                  </select>
+              <div className='d-flex flex-column col'>
 
-                </div>
+                <label htmlFor="" className='Filters_Select_label'>Title</label>
+                <select className="form-select-sm me-1 mb-2" aria-label="Default select example">
+                  <option defaultValue>All</option>
+                  <option value="1">Engineers</option>
+                  <option value="2">FrontEnd Developers</option>
+                  <option value="3">Data Scientist</option>
+                </select>
 
-                <div className='d-flex flex-column col'>
+              </div>
 
-                  <label htmlFor="" className='Filters_Select_label'>Department</label>
-                  <select className="form-select-sm me-1 mb-2" aria-label="Default select example">
-                    <option defaultValue>All</option>
-                    <option value="1">Software Engineering</option>
-                    <option value="2">Data Science</option>
-                    <option value="3">Data Analytics</option>
-                  </select>
+              <div className='d-flex flex-column col'>
 
-                </div>
+                <label htmlFor="" className='Filters_Select_label'>Department</label>
+                <select className="form-select-sm me-1 mb-2" aria-label="Default select example">
+                  <option defaultValue>All</option>
+                  <option value="1">Software Engineering</option>
+                  <option value="2">Data Science</option>
+                  <option value="3">Data Analytics</option>
+                </select>
 
-                <div className='d-flex flex-column col'>
+              </div>
 
-                  <label htmlFor="" className='Filters_Select_label'>Project</label>
-                  <select className="form-select-sm  me-1 mb-2" aria-label="Default select example">
-                    <option defaultValue>All</option>
-                    <option value="1">Soneri Gas</option>
-                    <option value="2">Telenor</option>
-                    <option value="3">Pak Aid</option>
-                  </select>
+              <div className='d-flex flex-column col'>
 
-                </div>
+                <label htmlFor="" className='Filters_Select_label'>Project</label>
+                <select className="form-select-sm  me-1 mb-2" aria-label="Default select example">
+                  <option defaultValue>All</option>
+                  <option value="1">Soneri Gas</option>
+                  <option value="2">Telenor</option>
+                  <option value="3">Pak Aid</option>
+                </select>
 
-                <div className='col d-flex align-items-center' >
-                  <button className='btn btn-light border  border-dark rounded-0 btn-sm px-4' style={{ marginTop: "10px" }}>Apply</button>
-                </div>
+              </div>
+
+              <div className='col d-flex align-items-center' >
+                <button className='btn btn-light border  border-dark rounded-0 btn-sm px-4' style={{ marginTop: "10px" }}>Apply</button>
+              </div>
 
             </div>
           </div>
@@ -71,3 +71,6 @@ export default function EmployesFilters() {
     </div >
   )
 }
+
+
+export default EmployesFilters;

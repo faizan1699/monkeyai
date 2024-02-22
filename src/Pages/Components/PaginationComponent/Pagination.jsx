@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-export default function Pagination({ currentPage, totalPages, onPageChange }) {
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+
   const [active, setActive] = useState(1);
 
   const handlePageClick = (pageNumber) => {
@@ -15,10 +16,10 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <nav>
         <ul className="pagination" id='pagination_Color_setting'>
 
-          {["Previous", 1, 2, 3, 4 , " Next"].map(pageNumber => (
-            <li key={pageNumber} className={`page-item rounded-0 p-0 m-0 ${active === pageNumber ? 'active' : ''}`} onClick={() => handlePageClick(pageNumber)}>
+          {["Previous", 1, 2, 3, 4, " Next"].map(pageNumber => (
+            <div style={{ transition: "2s" }} key={pageNumber} className={`page-item rounded-0 p-0 m-0 ${active === pageNumber ? 'active' : ''}`} onClick={() => handlePageClick(pageNumber)}>
               <Link className="page-link rounded-0 " to="">{pageNumber}</Link>
-            </li>
+            </div>
           ))
           }
         </ul>
@@ -26,3 +27,5 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     </div>
   );
 }
+
+export default Pagination

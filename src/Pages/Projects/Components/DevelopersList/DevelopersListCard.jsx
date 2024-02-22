@@ -1,57 +1,89 @@
 import React, { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 import Pagination from '../../../Components/PaginationComponent/Pagination';
 
 export default function DevelopersListCard(props) {
 
-    const [userdata, setUserData] = useState();
     const [currentPage, setCurrentPage] = useState(1);
-   
-    const totalPages = 5;
 
-    useEffect(() => {
-        console.log(userdata);
-    }, [userdata]);
+    const totalPages = 5;
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
 
-    const getEmployeeData = (clickedData) => {
-        setUserData(JSON.stringify(clickedData));
+    const navigate = useNavigate();
+    const [employedata, setEmployeData] = useState([]);
+
+    const getEmployeData = (data) => {
+        navigate(`/employees/${data.id}`);
     };
+
+    useEffect(() => {
+        const getEmploye = localStorage.getItem(`Employes`);
+        const employe = JSON.parse(getEmploye);
+        setEmployeData(employe);
+    }, [])
 
     return (
         <>
-            <table className="table table-responsive-sm table-hover Employ_table" style={{ overflow: "scroll" }}>
-                <thead className='bg-danger'>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Employee Name</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Projects</th>
-                        <th scope="col">Assignment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.DevelopersListData.map((data, Index) => (
-                        <tr onClick={() => getEmployeeData(data)} key={Index}>
-                            <td className='fw-bold text-center'>{Index + 1}</td>
-                            <td className='d-flex'>
-                                <span className='rounded-pill pe-2'><img className='img-fluid rounded-pill projects_Imgs ' src={data.employimg} alt="Something Wrong" /></span>
-                                <div>
-                                    <span className='d-flex flex-column'>{data.Name}</span>
-                                    <span className='small text-lowercase'>{data.mail}</span>
-                                </div>
-                            </td>
-                            <td>{data.desigination}</td>
-                            <td>{data.department}</td>
-                            <td>{data.Project ? "Nothing" : "das"}</td>
-                            <td>{data.assignment}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div>
+                <div className='table-responsive'>
+                    {
+                        employedata ? (
+                            <table className="table table-hover table-responsive-sm table-responsive Employ_table">
+
+                                <thead className='bg-danger'>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Employee Name</th>
+                                        <th scope='col'>Title</th>
+                                        <th scope="col">Assignment</th>
+                                        <th scope="col">Comment</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {employedata.map((data, Index, id) => (
+
+                                        <tr id={data.id} key={Index}>
+
+                                            <td onClick={() => getEmployeData(data)} className='fw-bold text-center'>{Index + 1}</td>
+
+                                            <td onClick={() => getEmployeData(data)} >
+                                                <div className='d-flex' >
+                                                    <img className='img-fluid rounded-pill me-2' id='employetable_img' src={data.employeimg} alt="not found" />
+
+                                                    <div className='m-0  d-flex flex-column justify-content-center'>
+                                                        <p className='small m-0 text-nowrap fw-bold'>
+                                                            {data.name ? data.name : 'not found'}
+                                                        </p>
+                                                        <p className='small m-0'>
+                                                            {data.email ? data.email : 'not found'}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.jobtitle ? data.jobtitle : 'not found'}</td>
+                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.assignment ? data.assignment : 'not found'}</td>                                            <td onClick={() => getEmployeData(data)} className='text-nowrap' >{data.assignment ? data.assignment : 'not found'}</td>
+
+                                        </tr>
+                                    ))}
+
+                                </tbody>
+                            </table>
+                        ) : (
+                            <div>
+                                <h1>Data Not Found</h1>
+                            </div>
+                        )
+                    }
+                </div>
+
+            </div>
+
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         </>
     );

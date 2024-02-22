@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-export default function AddBtn({ routlink , btntitle , iconClass , btnclass , fwicon}) {
+const AddBtn = ({ btnRef, routlink, btntitle, iconClass, btnclass, fwicon, handleClick }) => {
+
   return (
-    <Link className={`btn ${btnclass}`} to={routlink} >
+    <Link ref={btnRef} className={`btn ${btnclass}`} to={routlink} onClick={handleClick}  >
       <span className={`me-1 small bg-light rounded-pill fw-bold ${iconClass} `} >
         <i className={`small rounded-pill px-1 ${fwicon}`} ></i>
       </span>
@@ -12,3 +13,5 @@ export default function AddBtn({ routlink , btntitle , iconClass , btnclass , fw
     </Link>
   )
 }
+
+export default AddBtn;

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const ProjectDataRender = ({ data, Index }) => {
+
     const [progressEndValue, setProgressEndValue] = useState(data.projectcomplete);
+    const projectcomplete = 1;
 
     useEffect(() => {
         const circularProgress = document.querySelector(`.circular-progress-${Index}`);
@@ -10,10 +12,10 @@ const ProjectDataRender = ({ data, Index }) => {
         progressValue.textContent = `${progressEndValue}%`;
         circularProgress.style.background = `conic-gradient( ${data.progresscolor} ${progressEndValue * 3.6}deg, #E9ECEF 0deg)`;
         setProgressEndValue(progressEndValue);
-
-    }, [progressEndValue, Index , data.progresscolor]);
+    }, [progressEndValue, Index, data.progresscolor]);
 
     return (
+
         <div className='row'>
 
             <div className="col-3 py-1">
@@ -21,20 +23,22 @@ const ProjectDataRender = ({ data, Index }) => {
             </div>
 
             <div className="col-7 p-0">
-                <div className='card-text fw-bold small'>{data.title}</div>
-                <p className='small'><span>Resources in Projects :</span> {data.resourcesnum}</p>
+                <div className='card-text fw-bold small'>{data.project}</div>
+                <p className='small'><span>Resources in Projects :</span> {data.resourcesnum}10</p>
             </div>
 
             <div className="col-1 py-1 small">
                 <div className="fw-bold small">
 
                     <div className={`circular-progress border-danger circular-progress-${Index}`}>
-                        <span className={`progress-value progress-value-${Index}`}>{data.projectcomplete}</span>
+                        <span className={` progress-value progress-value-${Index} `}>{projectcomplete}</span>
                     </div>
 
                 </div>
             </div>
+
         </div>
+
     );
 };
 
