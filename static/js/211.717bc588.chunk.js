@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkai_ai=self.webpackChunkai_ai||[]).push([[211],{4211:(e,s,t)=>{t.r(s),t.d(s,{default:()=>u});var n=t(2791),a=t(7689),o=t(184);const u=e=>{const s=(0,a.s0)(),{Component:t}=e,[u,c]=(0,n.useState)(!1);return(0,n.useEffect)((()=>{const e=sessionStorage.getItem("token");c(!!e),e||s("/login")}),[s]),u?(0,o.jsx)(t,{}):u}}}]);
-//# sourceMappingURL=211.717bc588.chunk.js.map
